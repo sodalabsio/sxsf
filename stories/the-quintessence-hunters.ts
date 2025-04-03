@@ -7,7 +7,7 @@ export const thisStory: Story = {
   date: '2025-03-21',
   slug: 'the-quintessence-hunters',
   excerpt: 'The first time Elara detected the anomaly, she thought it was an equipment malfunction. ',
-  imageUrl: '../../assets/the-quintessence-hunters.png',
+  imageUrl: 'assets/the-quintessence-hunters.png',
   content: `The first time Elara detected the anomaly, she thought it was an equipment malfunction. The quantum resonance scanner she'd designed was experimental at best, cobbled together from salvaged parts and theoretical physics that most of her colleagues dismissed as fringe science.
 
 "That can't be right," she muttered, tapping the holographic display hovering above her workstation. The reading showed a concentrated pocket of energy unlike anything she'd ever seen—a ripple in the fabric of spacetime where dark energy appeared to be pooling rather than dispersing.

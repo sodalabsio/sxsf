@@ -11,16 +11,34 @@ const StoryPage = () => {
   const navigate = useNavigate();
   const [story, setStory] = useState<Story | null>(null);
   const [loading, setLoading] = useState(true);
+  const [imageError, setImageError] = useState(false);
+
+  // Placeholder image for fallback
+  const placeholderImage = 'https://images.unsplash.com/photo-1581093458791-9f3c3900df7b?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80';
 
   useEffect(() => {
     const fetchStory = async () => {
       if (!slug) return;
       
       try {
+        console.log(`Fetching story with slug: ${slug}`);
         const fetchedStory = await getStoryBySlug(slug);
+        
         if (fetchedStory) {
+          console.log(`Story found: ${fetchedStory.title}`);
+          console.log(`Story image URL: ${fetchedStory.imageUrl}`);
           setStory(fetchedStory);
+          
+          // Pre-load the image to check if it exists
+          const img = new Image();
+          img.onload = () => setImageError(false);
+          img.onerror = () => {
+            console.error(`Failed to load hero image: ${fetchedStory.imageUrl}`);
+            setImageError(true);
+          };
+          img.src = fetchedStory.imageUrl;
         } else {
+          console.error(`Story not found for slug: ${slug}`);
           // Story not found, redirect to home
           navigate('/');
         }
@@ -54,6 +72,9 @@ const StoryPage = () => {
     );
   }
 
+  // Use the actual image URL or fallback to placeholder if there was an error
+  const imageUrl = imageError ? placeholderImage : story.imageUrl;
+
   return (
     <main>
       <div className="story-hero">
@@ -61,7 +82,7 @@ const StoryPage = () => {
         <div 
           className="story-hero-image" 
           style={{ 
-            backgroundImage: `url("${story.imageUrl}")`,
+            backgroundImage: `url("${imageUrl}")`,
             backgroundSize: 'cover',
             backgroundPosition: 'center'
           }}
@@ -81,7 +102,7 @@ const StoryPage = () => {
           </ReactMarkdown>
         </div>
         
-        {story.references.length > 0 && (
+        {story.references && story.references.length > 0 && (
           <div className="references">
             <h3>Scientific References</h3>
             {story.references.map((reference) => (

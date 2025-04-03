@@ -6,8 +6,16 @@ import Navigation from './components/Navigation';
 import Footer from './components/Footer';
 
 function App() {
+  // Determine if we're in production (GitHub Pages) or development
+  const isProduction = import.meta.env.PROD;
+  
+  // Only use the basename in production
+  const basename = isProduction ? '/sxsf' : '';
+  
+  console.log(`Running in ${isProduction ? 'production' : 'development'} mode with basename: '${basename}'`);
+
   return (
-    <Router basename="/sxsf">
+    <Router basename={basename}>
       <Navigation />
       <Routes>
         <Route path="/" element={<HomePage />} />
