@@ -1,4 +1,4 @@
-# Sci-Fi Science Stories
+# SXSF (Science X Sci-Fi)
 
 A React application that hosts weekly AI-generated sci-fi stories based on scientific breakthroughs. The site is designed to engage teachers, students, and science enthusiasts by presenting cutting-edge science in an accessible and entertaining format.
 
@@ -22,8 +22,8 @@ A React application that hosts weekly AI-generated sci-fi stories based on scien
 
 1. Clone the repository:
 ```bash
-git clone https://github.com/yourusername/sci-fi-science-stories.git
-cd sci-fi-science-stories
+git clone https://github.com/sodalabsio/sxsf.git
+cd sxsf
 ```
 
 2. Install dependencies:
@@ -42,22 +42,32 @@ yarn dev
 
 4. Open your browser and navigate to `http://localhost:5173`
 
-## Adding New Stories
-
-To add a new story to the site:
-
-1. Create a new markdown file in the `src/data/stories` directory (you'll need to create this directory)
-2. Format your markdown file following the structure of the example story
-3. Add the story metadata to the `stories` array in `src/data/stories/index.ts` (you'll need to create this file)
-4. Update the `getAllStories` function in `src/utils/storyUtils.ts` to import and include your new story
-
 ### Story Format
 
 Each story should include:
 
 - The main story text in markdown format
 - References to scientific papers that support the science in the story
-- An AI-generated lead image (store in `public/images`)
+- An AI-generated lead image
+
+## Adding New Stories
+
+To add a new story to the site:
+
+1. Create a new markdown file using Agent-C (or a similar Agentic AI system)
+2. Create a hero image for the story -- ideally in landscape format (e.g. Dall-E, MidJourney, Stable Diffusion)
+2. Ask an AI, or manually format your markdown file following the structure in one of the existing stories to produce a .ts file in the `src/stories` directory. The file should include:
+   - A unique ID number (e.g. 1, 2, 3)
+   - A title
+   - A date (formatted as YYYY-MM-DD)
+   - A slug (e.g. "the-moon-is-a-giant-magnet")
+   - An except (could be the first sentence of the story)
+   - A hero image PNG (stored in `assets`)
+   - The story text in markdown format
+   - References to scientific papers that support the science in the story
+3. Add the new story `.ts` file to `stories/`
+4. Add the hero image to the `assets/` directory
+5. Redeploy to GitHub Pages
 
 ## Deployment
 
@@ -65,7 +75,7 @@ The app is configured for easy deployment to GitHub Pages:
 
 1. Update the `homepage` field in `package.json` to match your GitHub Pages URL:
 ```json
-"homepage": "https://yourusername.github.io/sci-fi-science-stories"
+"homepage": "https://sodalabsio.github.io/sxsf"
 ```
 
 2. Deploy to GitHub Pages:
