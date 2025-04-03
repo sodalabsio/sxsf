@@ -7,18 +7,18 @@ export default defineConfig({
   plugins: [
     react(),
     // Remove viteSingleFile plugin as it's causing issues with assets
-    
+
     // Custom plugin to copy stories-data.json to the build output
     {
       name: 'copy-stories-data',
       writeBundle() {
         const srcPath = path.resolve(__dirname, 'src/stories-data.json');
         const destPath = path.resolve(__dirname, 'dist/stories-data.json');
-        
+
         if (fs.existsSync(srcPath)) {
           // Ensure the destination directory exists
           fs.mkdirSync(path.dirname(destPath), { recursive: true });
-          
+
           // Copy the file
           fs.copyFileSync(srcPath, destPath);
           console.log('Copied stories-data.json to build output');
@@ -33,19 +33,19 @@ export default defineConfig({
       writeBundle() {
         const rootAssetsPath = path.resolve(__dirname, 'assets');
         const destAssetsPath = path.resolve(__dirname, 'dist/assets');
-        
+
         if (fs.existsSync(rootAssetsPath)) {
           // Ensure the destination directory exists
           fs.mkdirSync(destAssetsPath, { recursive: true });
-          
+
           // Copy all files from the assets directory
           const copyDir = (src, dest) => {
             const entries = fs.readdirSync(src, { withFileTypes: true });
-            
+
             for (const entry of entries) {
               const srcPath = path.join(src, entry.name);
               const destPath = path.join(dest, entry.name);
-              
+
               if (entry.isDirectory()) {
                 fs.mkdirSync(destPath, { recursive: true });
                 copyDir(srcPath, destPath);
@@ -55,7 +55,7 @@ export default defineConfig({
               }
             }
           };
-          
+
           copyDir(rootAssetsPath, destAssetsPath);
           console.log(`Copied assets from ${rootAssetsPath} to ${destAssetsPath}`);
         } else {
@@ -69,7 +69,7 @@ export default defineConfig({
       writeBundle() {
         const indexPath = path.resolve(__dirname, 'dist/index.html');
         const notFoundPath = path.resolve(__dirname, 'dist/404.html');
-        
+
         if (fs.existsSync(indexPath)) {
           // Create a 404.html file with redirect script
           const notFoundContent = `
@@ -99,18 +99,18 @@ export default defineConfig({
 </body>
 </html>
           `;
-          
+
           fs.writeFileSync(notFoundPath, notFoundContent);
           console.log('Created 404.html for GitHub Pages SPA support');
-          
+
           // Also update index.html to handle the redirect
           let indexContent = fs.readFileSync(indexPath, 'utf8');
-          
+
           // Check if the redirect script is already in the index.html
           if (!indexContent.includes('Single Page Apps for GitHub Pages')) {
             // Find the head closing tag
             const headCloseIndex = indexContent.indexOf('</head>');
-            
+
             if (headCloseIndex !== -1) {
               // Insert the redirect script before the head closing tag
               const redirectScript = `
@@ -130,7 +130,7 @@ export default defineConfig({
     }(window.location))
   </script>
               `;
-              
+
               indexContent = indexContent.slice(0, headCloseIndex) + redirectScript + indexContent.slice(headCloseIndex);
               fs.writeFileSync(indexPath, indexContent);
               console.log('Updated index.html with redirect script');
@@ -152,5 +152,6 @@ export default defineConfig({
     // Don't inline all assets, let them be loaded separately
     assetsInlineLimit: 0, // Don't inline any assets
   },
-  base: '/sxsf/' // This ensures assets are loaded correctly on GitHub Pages
+  // base: '/sxsf/' // This ensures assets are loaded correctly on GitHub Pages
+  base: process.env.NODE_ENV === 'production' ? '/sxsf/' : '/',
 });
