@@ -1,6 +1,5 @@
 import { Story } from '../types';
 import { format, parseISO } from 'date-fns';
-import { storyFiles } from '../stories-index';
 
 // Helper function to fix image paths
 const fixImagePath = (story: Story): Story => {
@@ -36,45 +35,14 @@ const fixImagePath = (story: Story): Story => {
   return updatedStory;
 };
 
-// Load a single story by its slug
-const loadStory = async (slug: string): Promise<Story | null> => {
-  try {
-    // Use dynamic import with a specific path rather than glob pattern
-    const module = await import(`../../stories/${slug}.ts`);
-    
-    // Extract the story object - it could be the default export or named export
-    let story: Story | null = null;
-    
-    if (module.default && isStory(module.default)) {
-      story = module.default;
-    } else if (module.thisStory && isStory(module.thisStory)) {
-      story = module.thisStory;
-    } else {
-      // Try to find any export that looks like a story
-      for (const key in module) {
-        if (isStory(module[key])) {
-          story = module[key];
-          break;
-        }
-      }
-    }
-    
-    if (!story) {
-      console.error(`No valid story found in module for slug: ${slug}`);
-      return null;
-    }
-    
-    // Fix image paths
-    return fixImagePath(story);
-  } catch (error) {
-    console.error(`Error loading story with slug ${slug}:`, error);
-    return null;
-  }
-};
+// Type guard to check if an object is a valid module
+function isValidModule(obj: unknown): obj is Record<string, unknown> {
+  return obj !== null && typeof obj === 'object';
+}
 
 // Type guard to check if an object is a Story
-function isStory(obj: any): obj is Story {
-  return obj && 
+function isStory(obj: unknown): obj is Story {
+  return obj !== null && 
          typeof obj === 'object' && 
          'id' in obj && 
          'title' in obj && 
@@ -82,31 +50,72 @@ function isStory(obj: any): obj is Story {
          'slug' in obj;
 }
 
-// This function gets all stories using the index file
+// This function gets all stories
 export const getAllStories = async (): Promise<Story[]> => {
   try {
     console.log('Loading stories...');
     
-    // Load all stories in parallel
-    const storyPromises = storyFiles.map(slug => loadStory(slug));
-    const storyResults = await Promise.all(storyPromises);
+    let stories: Story[] = [];
     
-    // Filter out any null results (failed loads)
-    const stories = storyResults.filter((story): story is Story => story !== null);
+    // In production, use the static data file
+    if (import.meta.env.PROD) {
+      try {
+        // Fixed URL construction to ensure the base path is included
+        const baseUrl = import.meta.env.BASE_URL || '/';
+        // Ensure baseUrl ends with a slash
+        const normalizedBaseUrl = baseUrl.endsWith('/') ? baseUrl : `${baseUrl}/`;
+        // Construct the full URL for stories-data.json
+        const dataUrl = new URL(
+          'stories-data.json', 
+          window.location.origin + normalizedBaseUrl
+        ).href;
+        
+        console.log(`Fetching stories data from: ${dataUrl}`);
+        
+        // Fetch the static JSON file
+        const response = await fetch(dataUrl);
+        if (!response.ok) {
+          throw new Error(`Failed to fetch stories data: ${response.statusText}`);
+        }
+        stories = await response.json();
+        console.log(`Loaded ${stories.length} stories from static data`);
+      } catch (error) {
+        console.error('Error fetching stories data:', error);
+        // Fall back to empty array
+        stories = [];
+      }
+    } 
+    // In development, use dynamic imports for a better dev experience
+    else {
+      // Use dynamic import to load all story files
+      const storyModules = import.meta.glob('../../stories/*.ts');
+      const storyPromises = Object.values(storyModules).map(importStory => importStory());
+      
+      // Wait for all story modules to be imported
+      const modules = await Promise.all(storyPromises);
+      
+      // Extract the story objects from the modules
+      stories = modules.flatMap(module => {
+        if (!isValidModule(module)) {
+          return [];
+        }
+        
+        // Each module might export the story under different names, so we check all exports
+        const exports = Object.values(module);
+        return exports.filter(isStory);
+      });
+      
+      console.log(`Loaded ${stories.length} stories from dynamic imports`);
+    }
     
-    console.log(`Loaded ${stories.length} stories`);
+    // Fix image paths and sort stories by date (newest first)
+    const processedStories = stories
+      .map(fixImagePath)
+      .sort((a: Story, b: Story) => 
+        new Date(b.date).getTime() - new Date(a.date).getTime()
+      );
     
-    // Sort stories by date (newest first)
-    const sortedStories = stories.sort((a: Story, b: Story) => 
-      new Date(b.date).getTime() - new Date(a.date).getTime()
-    );
-    
-    // Log all story image paths for debugging
-    sortedStories.forEach(story => {
-      console.log(`Story "${story.title}" image path: ${story.imageUrl}`);
-    });
-    
-    return sortedStories;
+    return processedStories;
   } catch (error) {
     console.error('Error loading stories:', error);
     return [];
@@ -115,17 +124,6 @@ export const getAllStories = async (): Promise<Story[]> => {
 
 export const getStoryBySlug = async (slug: string): Promise<Story | null> => {
   console.log(`Looking for story with slug: ${slug}`);
-  
-  // First try to load the story directly if it's in our index
-  if (storyFiles.includes(slug)) {
-    const story = await loadStory(slug);
-    if (story) {
-      console.log(`Found story: ${story.title}`);
-      return story;
-    }
-  }
-  
-  // If direct loading fails or the slug isn't in our index, fall back to searching all stories
   const allStories = await getAllStories();
   const story = allStories.find(s => s.slug === slug) || null;
   
