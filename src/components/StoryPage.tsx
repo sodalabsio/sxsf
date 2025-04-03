@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useRef } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
@@ -12,6 +12,7 @@ const StoryPage = () => {
   const [story, setStory] = useState<Story | null>(null);
   const [loading, setLoading] = useState(true);
   const [imageError, setImageError] = useState(false);
+  const imageLoadAttempted = useRef(false);
 
   // Placeholder image for fallback
   const placeholderImage = 'https://images.unsplash.com/photo-1581093458791-9f3c3900df7b?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80';
@@ -29,14 +30,19 @@ const StoryPage = () => {
           console.log(`Story image URL: ${fetchedStory.imageUrl}`);
           setStory(fetchedStory);
           
-          // Pre-load the image to check if it exists
-          const img = new Image();
-          img.onload = () => setImageError(false);
-          img.onerror = () => {
-            console.error(`Failed to load hero image: ${fetchedStory.imageUrl}`);
-            setImageError(true);
-          };
-          img.src = fetchedStory.imageUrl;
+          // Only attempt to load the image once
+          if (!imageLoadAttempted.current) {
+            imageLoadAttempted.current = true;
+            
+            // Pre-load the image to check if it exists
+            const img = new Image();
+            img.onload = () => setImageError(false);
+            img.onerror = () => {
+              console.error(`Failed to load hero image: ${fetchedStory.imageUrl}`);
+              setImageError(true);
+            };
+            img.src = fetchedStory.imageUrl;
+          }
         } else {
           console.error(`Story not found for slug: ${slug}`);
           // Story not found, redirect to home
@@ -51,6 +57,12 @@ const StoryPage = () => {
 
     fetchStory();
   }, [slug, navigate]);
+
+  // Reset the image load attempt flag when the slug changes
+  useEffect(() => {
+    imageLoadAttempted.current = false;
+    setImageError(false);
+  }, [slug]);
 
   if (loading) {
     return (

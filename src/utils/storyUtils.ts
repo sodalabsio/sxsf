@@ -26,7 +26,10 @@ const fixImagePath = (story: Story): Story => {
       updatedStory.imageUrl = `/${cleanPath}`;
     } else {
       // For production (GitHub Pages), use the BASE_URL
-      updatedStory.imageUrl = `${import.meta.env.BASE_URL}${cleanPath}`;
+      // Ensure no double slashes by removing any trailing slash from BASE_URL
+      const baseUrl = import.meta.env.BASE_URL || '';
+      const normalizedBaseUrl = baseUrl.endsWith('/') ? baseUrl.slice(0, -1) : baseUrl;
+      updatedStory.imageUrl = `${normalizedBaseUrl}/${cleanPath}`;
     }
     
     console.log(`Fixed image path: ${story.imageUrl} -> ${updatedStory.imageUrl}`);
@@ -60,15 +63,13 @@ export const getAllStories = async (): Promise<Story[]> => {
     // In production, use the static data file
     if (import.meta.env.PROD) {
       try {
-        // Fixed URL construction to ensure the base path is included
-        const baseUrl = import.meta.env.BASE_URL || '/';
-        // Ensure baseUrl ends with a slash
-        const normalizedBaseUrl = baseUrl.endsWith('/') ? baseUrl : `${baseUrl}/`;
+        // Get the base URL from the environment
+        const baseUrl = import.meta.env.BASE_URL || '';
+        
         // Construct the full URL for stories-data.json
-        const dataUrl = new URL(
-          'stories-data.json', 
-          window.location.origin + normalizedBaseUrl
-        ).href;
+        // Make sure to remove any trailing slashes from baseUrl to prevent double slashes
+        const normalizedBaseUrl = baseUrl.endsWith('/') ? baseUrl : `${baseUrl}/`;
+        const dataUrl = `${window.location.origin}${normalizedBaseUrl}stories-data.json`;
         
         console.log(`Fetching stories data from: ${dataUrl}`);
         

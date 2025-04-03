@@ -9,8 +9,13 @@ function App() {
   // Determine if we're in production (GitHub Pages) or development
   const isProduction = import.meta.env.PROD;
   
-  // Only use the basename in production
+  // Get the base URL from the environment or use '/sxsf' for production
   const basename = isProduction ? '/sxsf' : '';
+  
+  // Store the basename in a global variable for use in other components
+  if (isProduction) {
+    window.__BASENAME__ = basename;
+  }
   
   console.log(`Running in ${isProduction ? 'production' : 'development'} mode with basename: '${basename}'`);
 
@@ -25,6 +30,13 @@ function App() {
       <Footer />
     </Router>
   );
+}
+
+// Add this to make TypeScript happy
+declare global {
+  interface Window {
+    __BASENAME__?: string;
+  }
 }
 
 export default App;
