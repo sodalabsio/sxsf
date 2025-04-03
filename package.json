@@ -3,13 +3,14 @@
   "private": true,
   "version": "0.1.0",
   "type": "module",
-  "homepage": "https://sodalabsio.github.io/sxsf/",
+  "homepage": "https://sodalabsio.github.io/sxsf",
   "scripts": {
     "dev": "vite",
-    "build": "tsc && vite build",
+    "build": "node scripts/generate-story-index.js && tsc && vite build",
     "preview": "vite preview",
     "predeploy": "npm run build",
-    "deploy": "gh-pages -d dist"
+    "deploy": "gh-pages -d dist",
+    "generate-index": "node scripts/generate-story-index.js"
   },
   "dependencies": {
     "date-fns": "^3.3.1",

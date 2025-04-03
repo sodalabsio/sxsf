@@ -11,6 +11,18 @@ export default defineConfig({
   ],
   build: {
     outDir: 'dist',
+    // Improve production build settings
+    rollupOptions: {
+      output: {
+        manualChunks: undefined, // Disable code splitting for better compatibility
+      },
+    },
+    // Ensure all assets are included in the build
+    assetsInlineLimit: 0,
   },
-  base: '/sxsf/' // This ensures assets are loaded correctly on GitHub Pages
+  base: '/sxsf/', // This ensures assets are loaded correctly on GitHub Pages
+  // Optimize dynamic imports
+  optimizeDeps: {
+    include: ['date-fns']
+  }
 });

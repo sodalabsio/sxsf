@@ -1,10 +1,6 @@
 import { Story } from '../types';
 import { format, parseISO } from 'date-fns';
-
-// Add type declaration for Vite's import.meta.glob
-interface ImportModule {
-  (): Promise<any>;
-}
+import { storyFiles } from '../stories-index';
 
 // Helper function to fix image paths
 const fixImagePath = (story: Story): Story => {
@@ -40,44 +36,77 @@ const fixImagePath = (story: Story): Story => {
   return updatedStory;
 };
 
-// This function dynamically imports all story files from the data directory
+// Load a single story by its slug
+const loadStory = async (slug: string): Promise<Story | null> => {
+  try {
+    // Use dynamic import with a specific path rather than glob pattern
+    const module = await import(`../../stories/${slug}.ts`);
+    
+    // Extract the story object - it could be the default export or named export
+    let story: Story | null = null;
+    
+    if (module.default && isStory(module.default)) {
+      story = module.default;
+    } else if (module.thisStory && isStory(module.thisStory)) {
+      story = module.thisStory;
+    } else {
+      // Try to find any export that looks like a story
+      for (const key in module) {
+        if (isStory(module[key])) {
+          story = module[key];
+          break;
+        }
+      }
+    }
+    
+    if (!story) {
+      console.error(`No valid story found in module for slug: ${slug}`);
+      return null;
+    }
+    
+    // Fix image paths
+    return fixImagePath(story);
+  } catch (error) {
+    console.error(`Error loading story with slug ${slug}:`, error);
+    return null;
+  }
+};
+
+// Type guard to check if an object is a Story
+function isStory(obj: any): obj is Story {
+  return obj && 
+         typeof obj === 'object' && 
+         'id' in obj && 
+         'title' in obj && 
+         'content' in obj &&
+         'slug' in obj;
+}
+
+// This function gets all stories using the index file
 export const getAllStories = async (): Promise<Story[]> => {
   try {
     console.log('Loading stories...');
-    // Use Vite's import.meta.glob to dynamically import all .ts files in the data directory
-    const storyModules: Record<string, ImportModule> = import.meta.glob('../../stories/*.ts');
-    console.log(`Found ${Object.keys(storyModules).length} story modules`);
     
-    const storyPromises = Object.values(storyModules).map((importStory: ImportModule) => importStory());
+    // Load all stories in parallel
+    const storyPromises = storyFiles.map(slug => loadStory(slug));
+    const storyResults = await Promise.all(storyPromises);
     
-    // Wait for all story modules to be imported
-    const modules = await Promise.all(storyPromises);
+    // Filter out any null results (failed loads)
+    const stories = storyResults.filter((story): story is Story => story !== null);
     
-    // Extract the story objects from the modules and flatten the array
-    const stories = modules.flatMap((module: any) => {
-      // Each module might export the story under different names, so we check all exports
-      const exports = Object.values(module);
-      return exports.filter(exp => 
-        exp && typeof exp === 'object' && 
-        'id' in exp && 'title' in exp && 'content' in exp
-      ) as Story[];
-    });
+    console.log(`Loaded ${stories.length} stories`);
     
-    console.log(`Extracted ${stories.length} stories`);
-    
-    // Fix image paths and sort stories by date (newest first)
-    const processedStories = stories
-      .map(fixImagePath)
-      .sort((a: Story, b: Story) => 
-        new Date(b.date).getTime() - new Date(a.date).getTime()
-      );
+    // Sort stories by date (newest first)
+    const sortedStories = stories.sort((a: Story, b: Story) => 
+      new Date(b.date).getTime() - new Date(a.date).getTime()
+    );
     
     // Log all story image paths for debugging
-    processedStories.forEach(story => {
+    sortedStories.forEach(story => {
       console.log(`Story "${story.title}" image path: ${story.imageUrl}`);
     });
     
-    return processedStories;
+    return sortedStories;
   } catch (error) {
     console.error('Error loading stories:', error);
     return [];
@@ -86,8 +115,20 @@ export const getAllStories = async (): Promise<Story[]> => {
 
 export const getStoryBySlug = async (slug: string): Promise<Story | null> => {
   console.log(`Looking for story with slug: ${slug}`);
+  
+  // First try to load the story directly if it's in our index
+  if (storyFiles.includes(slug)) {
+    const story = await loadStory(slug);
+    if (story) {
+      console.log(`Found story: ${story.title}`);
+      return story;
+    }
+  }
+  
+  // If direct loading fails or the slug isn't in our index, fall back to searching all stories
   const allStories = await getAllStories();
-  const story = allStories.find(story => story.slug === slug) || null;
+  const story = allStories.find(s => s.slug === slug) || null;
+  
   console.log(story ? `Found story: ${story.title}` : `No story found with slug: ${slug}`);
   return story;
 };

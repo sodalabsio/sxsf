@@ -1,7 +1,7 @@
 import { Story } from '../types';
 
 // This is the story from the provided markdown file
-export const echoesOfAncientImpactStory: Story = {
+export const thisStory: Story = {
   id: '5',
   title: 'ECHOES OF ANCIENT IMPACT',
   date: '2025-03-07',
