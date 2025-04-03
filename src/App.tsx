@@ -7,7 +7,7 @@ import Footer from './components/Footer';
 
 function App() {
   return (
-    <Router>
+    <Router basename="/sxsf">
       <Navigation />
       <Routes>
         <Route path="/" element={<HomePage />} />
