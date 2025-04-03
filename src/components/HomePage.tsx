@@ -50,7 +50,7 @@ const HomePage = () => {
         <div className="container">
           <h1>Science X Sci-Fi </h1>
           <p>
-            Weekly AI-generated Sci-Fi stories inspired by the latest scientific breakthroughs.
+            Weekly AI-generated Sci-Fi stories by researchers at Monash University inspired by the latest scientific breakthroughs.
             Where imagination meets real science.
           </p>
         </div>
