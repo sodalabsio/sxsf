@@ -1,5 +1,4 @@
-import React from 'react';
-
+// Remove the React import since it's not needed with modern JSX transform
 const AboutPage = () => {
   return (
     <div className="about-container">

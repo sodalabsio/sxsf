@@ -12,5 +12,5 @@ export default defineConfig({
   build: {
     outDir: 'dist',
   },
-  base: './' // This ensures assets are loaded correctly on GitHub Pages
+  base: '/sxsf/' // This ensures assets are loaded correctly on GitHub Pages
 });

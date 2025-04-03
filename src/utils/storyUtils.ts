@@ -1,18 +1,23 @@
 import { Story } from '../types';
 import { format, parseISO } from 'date-fns';
 
+// Add type declaration for Vite's import.meta.glob
+interface ImportModule {
+  (): Promise<any>;
+}
+
 // This function dynamically imports all story files from the data directory
 export const getAllStories = async (): Promise<Story[]> => {
   try {
     // Use Vite's import.meta.glob to dynamically import all .ts files in the data directory
-    const storyModules = import.meta.glob('../../stories/*.ts');
-    const storyPromises = Object.values(storyModules).map(importStory => importStory());
+    const storyModules: Record<string, ImportModule> = import.meta.glob('../../stories/*.ts');
+    const storyPromises = Object.values(storyModules).map((importStory: ImportModule) => importStory());
     
     // Wait for all story modules to be imported
     const modules = await Promise.all(storyPromises);
     
     // Extract the story objects from the modules and flatten the array
-    const stories = modules.flatMap(module => {
+    const stories = modules.flatMap((module: any) => {
       // Each module might export the story under different names, so we check all exports
       const exports = Object.values(module);
       return exports.filter(exp => 
@@ -22,7 +27,7 @@ export const getAllStories = async (): Promise<Story[]> => {
     });
     
     // Sort stories by date (newest first)
-    return stories.sort((a, b) => 
+    return stories.sort((a: Story, b: Story) => 
       new Date(b.date).getTime() - new Date(a.date).getTime()
     );
   } catch (error) {
