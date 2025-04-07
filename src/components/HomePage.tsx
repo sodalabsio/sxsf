@@ -48,7 +48,11 @@ const HomePage = () => {
     <main>
       <section className="hero">
         <div className="container">
-          <h1>Science X Sci-Fi </h1>
+        <h1 style={{ textAlign: 'center' }}>
+          Science<br />
+          X<br />
+          Sci-Fi
+        </h1>
           <p>
             Weekly AI-generated Sci-Fi stories by researchers at Monash University inspired by the latest scientific breakthroughs.
             Where imagination meets real science.
