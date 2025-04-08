@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom';
 import { Story } from '../types';
 import { formatDate } from '../utils/storyUtils';
+import TagsList from './TagsList';
 
 interface StoryCardProps {
   story: Story;
@@ -34,6 +35,9 @@ const StoryCard = ({ story, featured = false }: StoryCardProps) => {
           </Link>
         </h3>
         <p className="story-card-date">{formatDate(story.date)}</p>
+        {story.tags && story.tags.length > 0 && (
+          <TagsList tags={story.tags} className="story-card-tags" />
+        )}
         <p className="story-card-excerpt">{story.excerpt}</p>
         <Link to={`/story/${story.slug}`} className="read-more">
           Read more

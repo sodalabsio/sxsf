@@ -1,5 +1,7 @@
 import { useEffect, useState } from 'react';
 import StoryCard from './StoryCard';
+import CollectionsList from './CollectionsList';
+import AllTags from './AllTags';
 import { Story } from '../types';
 import { getAllStories } from '../utils/storyUtils';
 
@@ -79,6 +81,17 @@ const HomePage = () => {
           </div>
         </section>
       )}
+    
+      {/* Display collections */}
+      <section className="container">
+        <CollectionsList />
+      </section>
+
+      {/* Display all tags for browsing */}
+      <section className="container">
+        <AllTags />
+      </section>
+
     </main>
   );
 };

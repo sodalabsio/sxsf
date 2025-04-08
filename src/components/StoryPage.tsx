@@ -5,6 +5,7 @@ import remarkGfm from 'remark-gfm';
 import { Story } from '../types';
 import { getStoryBySlug, formatDate } from '../utils/storyUtils';
 import ReadNext from './ReadNext';
+import TagsList from './TagsList';
 
 const StoryPage = () => {
   const { slug } = useParams<{ slug: string }>();
@@ -103,6 +104,9 @@ const StoryPage = () => {
           <header className="story-header">
             <h1 className="story-title">{story.title}</h1>
             <p className="story-date">{formatDate(story.date)}</p>
+            {story.tags && story.tags.length > 0 && (
+              <TagsList tags={story.tags} className="story-tags" />
+            )}
           </header>
         </div>
       </div>

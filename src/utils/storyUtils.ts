@@ -143,7 +143,7 @@ export const formatDate = (dateString: string): string => {
 };
 
 // Get related stories (excluding the current one)
-export const getRelatedStories = async (currentStoryId: string, limit: number = 3): Promise<Story[]> => {
+export const getRelatedStories = async (currentStoryId: string, limit: number = 4): Promise<Story[]> => {
   const allStories = await getAllStories();
   
   // Filter out the current story and get up to 'limit' other stories

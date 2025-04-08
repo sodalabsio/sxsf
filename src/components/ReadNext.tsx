@@ -17,7 +17,7 @@ const ReadNext = ({ currentStoryId }: ReadNextProps) => {
   useEffect(() => {
     const fetchRelatedStories = async () => {
       try {
-        const stories = await getRelatedStories(currentStoryId, 3);
+        const stories = await getRelatedStories(currentStoryId, 4);
         setRelatedStories(stories);
         
         // Initialize image error tracking
@@ -61,7 +61,14 @@ const ReadNext = ({ currentStoryId }: ReadNextProps) => {
           
           return (
             <div key={story.id} className="story-card">
-              <Link to={`/story/${story.slug}`} className="story-card-image-container">
+              <Link
+                   to={`/story/${story.slug}`}
+                   className="story-card-image-container"
+                   onClick={() => {
+                    setTimeout(() => {
+                      window.scrollTo(0, 0);
+                    }, 0); }}
+                   >
                 <img 
                   src={imageUrl} 
                   alt={story.title} 
@@ -70,12 +77,23 @@ const ReadNext = ({ currentStoryId }: ReadNextProps) => {
               </Link>
               <div className="story-card-content">
                 <h4 className="story-card-title">
-                  <Link to={`/story/${story.slug}`} className="story-title-link">
+                  <Link to={`/story/${story.slug}`} className="story-title-link"
+                   onClick={() => {
+                    setTimeout(() => {
+                      window.scrollTo(0, 0);
+                    }, 0); }}
+                  >
                     {story.title}
                   </Link>
                 </h4>
                 <p className="story-card-date">{formatDate(story.date)}</p>
-                <Link to={`/story/${story.slug}`} className="read-more">
+                <p className="story-card-excerpt">{story.excerpt}</p>
+                <Link to={`/story/${story.slug}`} className="read-more"
+                   onClick={() => {
+                    setTimeout(() => {
+                      window.scrollTo(0, 0);
+                    }, 0); }}
+                >
                   Read more
                 </Link>
               </div>

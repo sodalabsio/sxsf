@@ -8,6 +8,7 @@ export const thisStory: Story = {
   slug: 'celestial-sentinels', // URL-friendly version of the title
   excerpt: 'Dr. Makena Okafor notices something impossible in Jupiter\'s auroras—patterns too precise to be natural. As a massive solar storm approaches, her controversial theory might be humanity\'s only chance to understand a cosmic mystery billions of years in the making.', // Hook sentence for the story
   imageUrl: 'assets/celestial-sentinels.png', // Path to the story's image
+  tags: ['astronomy', 'cosmology', 'space-exploration', 'solar-system'],
   content: `Dr. Makena Okafor manipulated the holographic projection of Jupiter with her prosthetic left hand, the embedded sensors in her artificial fingers interfacing seamlessly with the lab's quantum imaging system. The gas giant's northern aurora bloomed before her eyes—a spectral dance of charged particles rendered in false color, swirling in patterns that had consumed her waking thoughts for the past three years.
 
 "Show me the EMIC wave propagation during the last solar compression event," she commanded.

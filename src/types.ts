@@ -14,4 +14,13 @@ export interface Story {
   content: string;
   imageUrl: string;
   references: Reference[];
+  tags?: string[]; // Optional array of tags for the story
+}
+
+// Interface for tag-based collections
+export interface Collection {
+  id: string;
+  title: string;
+  description: string;
+  tags: string[]; // Tags that define this collection
 }
