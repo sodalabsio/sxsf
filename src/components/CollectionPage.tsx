@@ -26,7 +26,7 @@ const CollectionPage = () => {
           // Filter stories that have ALL the tags in the collection
           // Tags are already in hyphenated lowercase format
           const filteredStories = allStories.filter(story => 
-            foundCollection.tags.every(collectionTag => 
+            foundCollection.tags.some(collectionTag => 
               story.tags?.some(storyTag => 
                 storyTag.toLowerCase() === collectionTag.toLowerCase()
               ) || false
@@ -75,7 +75,7 @@ const CollectionPage = () => {
         <div className="collection-header">
           <h1>{collection.title}</h1>
           <p className="collection-description">{collection.description}</p>
-          <Link to="/" className="back-link">← Back to all stories</Link>
+          <Link to="/collections" className="back-link">← Back to all collections</Link>
         </div>
 
         {stories.length > 0 ? (

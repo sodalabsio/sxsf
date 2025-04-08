@@ -10,7 +10,8 @@ const CollectionsList = () => {
 
   return (
     <section className="collections-section container">
-      <h2 className="section-title">Collections</h2><br />
+      <h1 className="section-title">Collections</h1>
+      <p className="collection-description">{}</p>
       <Link to="/" className="back-link">← Back to all stories</Link>
       <div className="collections-grid">
         {collections.map((collection) => (
