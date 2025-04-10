@@ -7,7 +7,7 @@ export const thisStory: Story = {
   date: '2025-03-07',
   slug: 'echoes-of-ancient-impact',
   excerpt: 'When a research team investigates Earth\'s oldest known impact crater in the Pilbara region of Australia, they discover that the 3.47-billion-year-old meteor strike wasn\'t just a random event.',
-  imageUrl: 'assets/echoes-of-ancient-impact.png',
+  imageUrl: '/assets/echoes-of-ancient-impact.png',
   tags: ['geology', 'astrobiology', 'panspermia', 'australia', 'indigenous-knowledge'],
   content: `The shimmering heat rose in waves from the ochre-red earth as Dr. Maya Chen stepped out of the air-conditioned research station. Even in early morning, the Pilbara's unforgiving sun beat down with relentless intensity. At 38°C and climbing, Marble Bar was living up to its reputation as Australia's hottest place. Maya shielded her eyes, gazing across the ancient landscape that stretched toward the North Pole Dome—home to Earth's oldest known impact crater.
 
