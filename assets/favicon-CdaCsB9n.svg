@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
+  <!-- Background -->
+  <rect width="64" height="64" rx="12" fill="#0a1128" />
+  
+  <!-- Atom/orbital elements (science) -->
+  <ellipse cx="32" cy="32" rx="24" ry="12" stroke="#4cc9f0" stroke-width="2" fill="none" transform="rotate(30 32 32)" opacity="0.8" />
+  <ellipse cx="32" cy="32" rx="24" ry="12" stroke="#4cc9f0" stroke-width="2" fill="none" transform="rotate(90 32 32)" opacity="0.8" />
+  <ellipse cx="32" cy="32" rx="24" ry="12" stroke="#4cc9f0" stroke-width="2" fill="none" transform="rotate(150 32 32)" opacity="0.8" />
+  
+  <!-- Nucleus/core (central element) -->
+  <circle cx="32" cy="32" r="8" fill="#f72585" />
+  
+  <!-- Sci-fi elements: stylized stars/sparkles -->
+  <circle cx="14" cy="14" r="1.5" fill="#ffffff" />
+  <circle cx="50" cy="18" r="1" fill="#ffffff" />
+  <circle cx="46" cy="50" r="1.5" fill="#ffffff" />
+  <circle cx="18" cy="48" r="1" fill="#ffffff" />
+  
+  <!-- Clearer X symbol -->
+  <path d="M26 26 L38 38" stroke="#ffffff" stroke-width="3" stroke-linecap="round" />
+  <path d="M38 26 L26 38" stroke="#ffffff" stroke-width="3" stroke-linecap="round" />
+
+</svg>
