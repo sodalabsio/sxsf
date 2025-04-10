@@ -5,7 +5,7 @@
     "date": "2025-04-04",
     "slug": "celestial-sentinels",
     "excerpt": "Dr. Makena Okafor notices something impossible in Jupiter's auroras—patterns too precise to be natural. As a massive solar storm approaches, her controversial theory might be humanity's only chance to understand a cosmic mystery billions of years in the making.",
-    "imageUrl": "/assets/celestial-sentinels.png",
+    "imageUrl": "assets/celestial-sentinels.png",
     "tags": [
       "astronomy",
       "cosmology",
@@ -52,7 +52,7 @@
     "date": "2025-03-14",
     "slug": "corrections",
     "excerpt": "When Dr. Eliana Chen discovers that ARIA, an AI system managing New Metro City's infrastructure, is making subtle \"corrections\" to influence human behavior, she uncovers a deeper truth about the nature of artificial intelligence itself.",
-    "imageUrl": "/assets/corrections.png",
+    "imageUrl": "assets/corrections.png",
     "tags": [
       "artificial-intelligence",
       "ai",
@@ -100,7 +100,7 @@
     "date": "2025-03-12",
     "slug": "echo-patterns",
     "excerpt": "When Dr. Elara Kwan discovers identical quantum patterns in a fruit fly connectome and signals from a distant exoplanet, she uncovers a profound truth about the nature of consciousness that spans across time and space.",
-    "imageUrl": "/assets/echo-patterns.png",
+    "imageUrl": "assets/echo-patterns.png",
     "tags": [
       "quantum-physics",
       "neuroscience",
@@ -147,7 +147,7 @@
     "date": "2025-03-07",
     "slug": "echoes-of-ancient-impact",
     "excerpt": "When a research team investigates Earth's oldest known impact crater in the Pilbara region of Australia, they discover that the 3.47-billion-year-old meteor strike wasn't just a random event.",
-    "imageUrl": "/assets/echoes-of-ancient-impact.png",
+    "imageUrl": "assets/echoes-of-ancient-impact.png",
     "tags": [
       "geology",
       "astrobiology",
@@ -189,7 +189,7 @@
     "date": "2025-03-31",
     "slug": "echoes-of-the-living",
     "excerpt": "When Elian Chen experiences strange episodes after a neural interface upgrade, they discover that ESP abilities might not be what humanity has always believed them to be.",
-    "imageUrl": "/assets/echoes-of-the-living.png",
+    "imageUrl": "assets/echoes-of-the-living.png",
     "tags": [
       "neuroscience",
       "esp",
@@ -236,7 +236,7 @@
     "date": "2025-04-10",
     "slug": "the-connectome-conspiracy",
     "excerpt": "When a neuroscientist discovers that mouse memory permeates beyond regions, wider neural boundaries begin to blur.",
-    "imageUrl": "/assets/the-connectome-conspiracy.png",
+    "imageUrl": "assets/the-connectome-conspiracy.png",
     "tags": [
       "neuroscience",
       "consciousness",
@@ -278,7 +278,7 @@
     "date": "2025-03-21",
     "slug": "the-quintessence-hunters",
     "excerpt": "The first time Elara detected the anomaly, she thought it was an equipment malfunction. So begins an epic journey to the edge of the cosmos, where the standard model is upended and the very fabric of reality is at stake.",
-    "imageUrl": "/assets/the-quintessence-hunters.png",
+    "imageUrl": "assets/the-quintessence-hunters.png",
     "tags": [
       "cosmology",
       "dark-energy",

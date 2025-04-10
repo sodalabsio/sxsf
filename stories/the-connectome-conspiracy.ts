@@ -7,7 +7,7 @@ export const thisStory: Story = {
   date: '2025-04-10', // Publication date in YYYY-MM-DD format
   slug: 'the-connectome-conspiracy', // URL-friendly version of the title
   excerpt: 'When a neuroscientist discovers that mouse memory permeates beyond regions, wider neural boundaries begin to blur.', // Hook sentence for the story, no spoilers!!
-  imageUrl: '/assets/the-connectome-conspiracy.png', // Path to the story's image
+  imageUrl: 'assets/the-connectome-conspiracy.png', // Path to the story's image
   tags: ['neuroscience', 'consciousness', 'memory', 'connectomics', 'ethics'], // Array of tags related to the story (e.g. ["climate", "health"])
   content: `Dr. Naomi Takahashi stared at the holographic display, watching as the neural pathways of the mouse brain lit up in a symphony of color. Each flash represented a neuron firing, each connection a story being told. The cubic millimeter of brain tissue contained over 200,000 cells, 82,000 neurons, and half a billion synapses—all captured in unprecedented detail.
 

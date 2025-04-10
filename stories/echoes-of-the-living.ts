@@ -7,7 +7,7 @@ export const thisStory: Story = {
   date: '2025-03-31',
   slug: 'echoes-of-the-living',
   excerpt: 'When Elian Chen experiences strange episodes after a neural interface upgrade, they discover that ESP abilities might not be what humanity has always believed them to be.',
-  imageUrl: '/assets/echoes-of-the-living.png',
+  imageUrl: 'assets/echoes-of-the-living.png',
   tags: ['neuroscience', 'esp', 'quantum-biology', 'microbiome'],
   content: `Elian Chen's fingers hovered over the soil sample, a familiar tingling sensation creeping up their spine. The rooftop garden laboratory of NeoCology's Neo-Shanghai headquarters stretched around them, the experimental ecosystem designed to purify industrial pollutants bathed in the soft glow of monitoring equipment. According to the sensors, everything was normal. But Elian knew better.
 
