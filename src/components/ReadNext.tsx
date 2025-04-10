@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Story } from '../types';
 import { getRelatedStories, formatDate } from '../utils/storyUtils';
+import TagsList from './TagsList';
 
 interface ReadNextProps {
   currentStoryId: string;
@@ -87,6 +88,9 @@ const ReadNext = ({ currentStoryId }: ReadNextProps) => {
                   </Link>
                 </h4>
                 <p className="story-card-date">{formatDate(story.date)}</p>
+                {story.tags && story.tags.length > 0 && (
+                <TagsList tags={story.tags} className="story-card-tags" />
+                )}
                 <p className="story-card-excerpt">{story.excerpt}</p>
                 <Link to={`/story/${story.slug}`} className="read-more"
                    onClick={() => {

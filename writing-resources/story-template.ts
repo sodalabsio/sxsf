@@ -8,6 +8,7 @@ export const thisStory: Story = {
   slug: '{{slug}}', // URL-friendly version of the title (e.g. title-with-dashes, lowercase)
   excerpt: '{{excerpt}}', // Hook sentence for the story, no spoilers!!
   imageUrl: 'assets/{{slug}}.png', // Path to the story's image
+  tags: [{{tags}}], // Array of tags related to the story, can be multi-word, lower-case, hyphenated (e.g. ["climate", "health"])  
   content: `{{content}}`, // The full story content in Markdown format
   references: [   // Array of up to 5 references to academic papers or reputable news articles that support the science in the story
     {
