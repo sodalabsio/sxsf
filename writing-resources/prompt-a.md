@@ -33,8 +33,12 @@ You are writing for the website SXSF (Science X Sci-Fi)(https://sodalabsio.githu
 
 You are to follow the steps below, and focus on making the story as engaging and compelling as possible with strong characters, settings and pacing; a real page-turner!
 
-1. Writing - write the story following the outline provided, ensuring it is compelling and engaging, with a strong narrative arc and character development.
+I have provided you with summaries of previous stories, key characters and settings. It is critical that in your writing, you avoid similar names or plot-lines. If you think some part of the outline, or characters, or settings, or title, etc. are too close to the previous stories, adapt your approach accordingly. Novelty and creativity are key!
 
-2. Review and Edit - review the story for interest, originality, and scientific grounding, make changes as appropriate, especially if you judge that any aspect of the story is too similar to existing SXSF stories. (refer to summaries provided).
+1. Critical review - review the story outline and come up with a list of edit/update notes to guide your writing based on the instructions provided above.
 
-3. Finalise - write out the story, with references, following the story-template.ts template provided.
+2. Writing - write the story following your analysis, ensuring it is compelling and engaging, with a strong narrative arc and character development.
+
+3. Review and Edit - review the story for interest, originality, and scientific grounding, make changes as appropriate, especially if you judge that any aspect of the story is too similar to existing SXSF stories. (refer again to summaries provided).
+
+4. Finalise - write out the story, with references, following the story-template.ts template provided.
