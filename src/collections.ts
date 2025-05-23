@@ -9,6 +9,18 @@ export const collections: Collection[] = [
     tags: ['editors-choice']
   },
   {
+    id: 'artificial-intelligence',
+    title: "Artificial Intelligence",
+    description: "Explorations of AI and its potential impact on humanity's future.",
+    tags: ['artificial-intelligence', 'ai']
+  },
+  {
+    id: 'climate-change',
+    title: "Climate Change",
+    description: "Stories that explore the science, impact, and solutions to climate change.",
+    tags: ['climate-change', 'climate-science', 'climate-action']
+  },   
+  {
     id: 'quantum',
     title: "Quantum Realms",
     description: "Stories that delve into the fascinating world of quantum mechanics and its implications.",
@@ -20,12 +32,6 @@ export const collections: Collection[] = [
   //   description: "Stories about our planet's ecosystems and environmental challenges.",
   //   tags: ['ecology', 'environment']
   // },
-  {
-    id: 'artificial-intelligence',
-    title: "Artificial Intelligence",
-    description: "Explorations of AI and its potential impact on humanity's future.",
-    tags: ['artificial-intelligence', 'ai']
-  }
 ];
 
 // Function to get all available collections

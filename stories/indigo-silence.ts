@@ -8,7 +8,7 @@ export const thisStory: Story = {
   slug: 'indigo-silence', // URL-friendly version of the title
   excerpt: 'When a physicist with unusual synesthetic abilities discovers a "silent place" in quantum noise, she unlocks a new understanding of reality hidden within strange metals.', // Hook sentence for the story, no spoilers!!
   imageUrl: 'assets/indigo-silence.png', // Path to the story's image
-  tags: ['quantum physics', 'strange metals', 'synesthesia', 'entanglement', 'quantum communication'], // Array of tags related to the story
+  tags: ['quantum-physics', 'strange-metals', 'synesthesia'], // Array of tags related to the story
   content: `
 The copper-lined walls of Laboratory 7 were designed to shield against electromagnetic interference, but Dr. Lydia Novak knew they couldn't shield her from what she was experiencing. As the temperature in the cryostat dropped below 2 Kelvin, the strange metal sample—a carefully grown crystal of ytterbium-rhodium-silicon—began to emit what only she could perceive: a complex symphony of tones that suddenly, inexplicably, fell silent.
 
