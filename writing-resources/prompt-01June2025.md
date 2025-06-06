@@ -3,13 +3,12 @@
 Attached are story summaries for SXSF (Science X Sci-Fi)(https://sodalabsio.github.io/sxsf/). The byline of the site is "Weekly AI-generated Sci-Fi stories by researchers at Monash University inspired by the latest scientific breakthroughs. Where imagination meets real science." 
 
 Review the summaries and come up with [
-    some directions for new science areas that have not been covered yet for this week's research.
+    some directions for new science areas that have not been covered yet for this week's research. Conduct a web search of recent scientific breakthroughs to motivate and ground your ideas.
 ],
 [
-    with three possible story ideas based around the attached summary research article, with science article: [[Bulk–spatiotemporal vortex correspondence in gyromagnetic zero-index media (https://www.nature.com/articles/s41586-025-08948-6) . ]]
-
-    It is essential that your story ideas break new ground/territory and put an emphasis on novelty and creativity.
+    three possible story ideas based around the attached summary research article, with science article: {article link, title, etc.}  Do more research if you need to.
 ]
+It is essential that your story ideas break new ground/territory and put an emphasis on novelty and creativity.
 
 # PHASE 2 (continuation): ideation, research and story outline
 
@@ -27,7 +26,7 @@ It is key that your story is founded on real scientific breakthroughs. If you ne
 
 # PHASE 2b: write to template
 
-Perfect, use the story template to prepare the story for deployment. You will need to select up to 5 significant scientific papers from your research to link to in the template. Be sure to include the URLs as indicated in the template.
+Perfect, use the story template to prepare the story for deployment. You will need to select up to 5 significant scientific papers from your research to link to in the template. When selecting these papers/URLs err towards the most prominent peer reviewed journals, unless you judge a work as really important to the story, but has not been peer reviewed and is on a pre-print server. Be sure to include the URLs as indicated in the template.
 
 # PHASE 3: (new thread) selection and writing. (attach story outlines from above, and prior summaries)
 
