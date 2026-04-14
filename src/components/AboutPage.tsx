@@ -9,12 +9,12 @@ const AboutPage = () => {
       <div className="about-content">
         <h2>Who are we?</h2>
         <p>
-          Science X Sci-Fi (SXSF) is a project of <a href="https://research.monash.edu/en/persons/simon-angus">Prof Simon Angus</a> and <a href="https://research.monash.edu/en/persons/lachlan-oneill">Lachlan O'Neill</a> from <a href="https://sodalabs.io">SoDa Laboratories, Monash University</a> -- a research lab working at the intersection of AI, machine learning, computational science, economics and social science. Science X Sci-Fi started as a weekly email to a small group of friends and colleagues, including the corresponding authors of the papers that inspired these stories. The project has since grown into a public platform, with the goal of making science more engaging and accessible to everyone. 
+          Science X Sci-Fi (SXSF) is a project of <a href="https://research.monash.edu/en/persons/simon-angus">Prof Simon Angus</a> and <a href="https://research.monash.edu/en/persons/lachlan-oneill">Dr Lachlan O'Neill</a> from <a href="https://sodalabs.io">SoDa Laboratories, Monash University</a> -- a research lab working at the intersection of AI, machine learning, computational science, economics and social science. Science X Sci-Fi started as a weekly email to a small group of friends and colleagues, including the corresponding authors of the papers that inspired these stories. The project has since grown into a public platform, with the goal of making science more engaging and accessible to everyone. 
         </p>
 
         <h2>Our Purpose</h2>
         <p>
-           Science X Sci-Fi aims to bridge the gap between cutting-edge scientific research and public engagement through the power of storytelling. Each week, we publish a new science fiction story inspired by a recent scientific breakthrough, making complex scientific concepts accessible and exciting.
+           Science X Sci-Fi aims to bridge the gap between cutting-edge scientific research and public engagement through the power of storytelling. Approximately weekly, we publish a new science fiction story inspired by a recent scientific breakthrough, making complex scientific concepts accessible and exciting.
         </p>
         
         <h2>AI-Generated Content, Inspired by Real Science</h2>
@@ -41,9 +41,9 @@ const AboutPage = () => {
           If you're passionate about science but find academic papers challenging to digest, our stories offer an alternative way to stay informed about the latest discoveries. Each story includes links to the original research, allowing you to explore further if a particular topic captures your interest.
         </p>
         
-        <h2>Weekly Updates</h2>
+        <h2>Weekly Updates (till June 2025!)</h2>
         <p>
-          We publish a new story every week, each focusing on a different scientific breakthrough. Check back regularly to discover new stories and explore the fascinating intersection of science and imagination.
+          Until 13 June 2025, we published a new story approximately every week, each focusing on a different scientific breakthrough. Since then we've put SXSF on pause as we work on other projects. Our aim is to bring SXSF back in the near future, with advances in new models and agentic workflows, we are excited for what could be built with SXSF in the future.
         </p>
         <h2>Contact</h2>
         <p>
