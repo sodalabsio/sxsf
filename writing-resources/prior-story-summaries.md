@@ -226,3 +226,17 @@
 - Boundaries, gradients, and adaptation
 
 **Plot Summary:** Microbial ecologist Dr. Inés Soria leads a high-stakes pilot project using Asgard-inspired engineered archaea to rehabilitate the anoxic waters of Uruguay's Laguna de Rocha. When a storm drives one reactor culture into an impossible new state, Inés discovers the archaea are no longer merely transporting their bacterial partners but inheriting them across cell divisions, forming a stable internal symbiosis. After an accidental leak seeds the poisoned marsh edge, the altered cells begin clearing sulfide-rich blackwater instead of causing ecological collapse. As corporate backers and biosafety officials demand sterilization, Inés realizes she may be witnessing a second act of eukaryogenesis: the emergence of a new partnership like the one that once gave rise to complex life. Faced with a storm that could either destroy the marsh with sterilants or give the lineage a controlled chance to survive, she chooses release and open publication over ownership. By dawn, the dead zone begins to breathe again, and Inés understands that evolution's oldest trick has not vanished—it has merely been waiting in the right wounded habitat to happen once more.
+
+## 18. What Survives the Drop
+
+**Lead Character:** Ione Vale
+**Supporting Characters:** Hamish Treloar, Bea Nascimento, Clancy Rourke, Lani Kells
+**Setting:** Perth and regional Western Australia, in the days leading into fire season
+**Key Themes:**
+- Truth versus bureaucratic convenience
+- Institutional denial and managed risk
+- Evidence hidden in damaged objects
+- Trust, public safety, and accountability
+- Reading pattern from failure and asymmetry
+
+**Plot Summary:** Reliability claims analyst Ione Vale investigates a series of burned emergency data-return capsules that officials are eager to dismiss as isolated variance. When she notices that the failure pattern mirrors the scarred shape of an australite scanned by a museum lab, she realizes the capsules’ descent instability was known and quietly excluded from certification. Despite pressure from her supervisor to bury the issue, Ione exposes the concealed defect at a public readiness briefing, proving that the system fails under realistic conditions. The disclosure costs her her job access, but it forces a corrective response before the worst of fire season arrives, and she finds a smaller, hard-won form of trust in the people using the capsules on the ground.
