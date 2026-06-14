@@ -1,4 +1,5 @@
 node_modules/
 assets-orig/
 dist/
-src/.DS_Store
+*/.DS_Store
+.DS_Store
