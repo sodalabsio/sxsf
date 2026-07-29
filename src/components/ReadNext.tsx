@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link } from '../router';
 import { Story } from '../types';
 import { getRelatedStories, formatDate } from '../utils/storyUtils';
 import TagsList from './TagsList';

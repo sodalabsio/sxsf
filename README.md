@@ -15,7 +15,7 @@ A React application that hosts weekly AI-generated sci-fi stories based on scien
 
 ### Prerequisites
 
-- Node.js (v14 or higher)
+- Node.js 20.19 or newer (or Node.js 22.12 or newer)
 - npm or yarn
 
 ### Installation
@@ -88,7 +88,7 @@ yarn deploy
 ## Built With
 
 - [React](https://reactjs.org/) - UI library
-- [React Router](https://reactrouter.com/) - Navigation
+- A lightweight in-repository browser router - Navigation
 - [React Markdown](https://github.com/remarkjs/react-markdown) - Markdown rendering
 - [date-fns](https://date-fns.org/) - Date formatting
 - [Vite](https://vitejs.dev/) - Build tool

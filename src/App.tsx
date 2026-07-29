@@ -1,4 +1,4 @@
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { Router, Routes, Route } from './router';
 import HomePage from './components/HomePage';
 import StoryPage from './components/StoryPage';
 import AboutPage from './components/AboutPage';
@@ -9,18 +9,8 @@ import Navigation from './components/Navigation';
 import Footer from './components/Footer';
 
 function App() {
-  // Determine if we're in production (GitHub Pages) or development
-  const isProduction = import.meta.env.PROD;
-  
-  // Get the base URL from the environment or use '/sxsf' for production
-  const basename = isProduction ? '/sxsf' : '';
-  
-  // Store the basename in a global variable for use in other components
-  if (isProduction) {
-    window.__BASENAME__ = basename;
-  }
-  
-  console.log(`Running in ${isProduction ? 'production' : 'development'} mode with basename: '${basename}'`);
+  // GitHub Pages serves this app from /sxsf; development serves it from root.
+  const basename = import.meta.env.PROD ? '/sxsf' : '';
 
   return (
     <Router basename={basename}>
@@ -36,13 +26,6 @@ function App() {
       <Footer />
     </Router>
   );
-}
-
-// Add this to make TypeScript happy
-declare global {
-  interface Window {
-    __BASENAME__?: string;
-  }
 }
 
 export default App;

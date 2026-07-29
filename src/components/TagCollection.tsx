@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { useParams, Link } from 'react-router-dom';
+import { useParams, Link } from '../router';
 import { Story } from '../types';
 import { getAllStories } from '../utils/storyUtils';
 import StoryCard from './StoryCard';

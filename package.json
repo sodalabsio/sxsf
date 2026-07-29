@@ -4,6 +4,9 @@
   "version": "0.1.0",
   "type": "module",
   "homepage": "https://sodalabsio.github.io/sxsf",
+  "engines": {
+    "node": "^20.19.0 || >=22.12.0"
+  },
   "scripts": {
     "dev": "vite",
     "build": "node scripts/generate-stories-data.js && tsc && vite build",
@@ -17,7 +20,6 @@
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-markdown": "^9.0.1",
-    "react-router-dom": "^6.22.0",
     "remark-gfm": "^4.0.0"
   },
   "devDependencies": {
@@ -30,5 +32,8 @@
     "typescript": "^5.2.2",
     "vite": "^8.0.16",
     "vite-plugin-singlefile": "^0.13.5"
+  },
+  "allowScripts": {
+    "fsevents@2.3.3": true
   }
 }
