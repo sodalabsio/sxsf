@@ -240,3 +240,18 @@
 - Reading pattern from failure and asymmetry
 
 **Plot Summary:** Reliability claims analyst Ione Vale investigates a series of burned emergency data-return capsules that officials are eager to dismiss as isolated variance. When she notices that the failure pattern mirrors the scarred shape of an australite scanned by a museum lab, she realizes the capsules’ descent instability was known and quietly excluded from certification. Despite pressure from her supervisor to bury the issue, Ione exposes the concealed defect at a public readiness briefing, proving that the system fails under realistic conditions. The disclosure costs her her job access, but it forces a corrective response before the worst of fire season arrives, and she finds a smaller, hard-won form of trust in the people using the capsules on the ground.
+
+## 19. The Shape of Consent
+
+**Lead Character:** Mira Solenko, a statistician and former Central Statistical Bureau official now serving as data analyst for the opposition Concord coalition
+**Supporting Characters:** Danel Ruse, Sanda Voll, Toma, Emin Karr
+**Setting:** The capital city of Solvat and the mountain town of Torun in the fictional Republic of Kavring, in the days following a disputed presidential election
+**Key Themes:**
+- Computational election forensics as a tool of civil resistance
+- The limits of statistical proof and the danger of over-claiming
+- Distributed citizen evidence versus centralized suppression
+- Honesty and defensibility as strategic weapons against authoritarian power
+- Loyalty and family, and the difference between coercion and genuine consent
+- Disinformation and the weaponization of a movement's own enthusiasm
+
+**Plot Summary:** After President Renko claims an implausible landslide, opposition data analyst Mira Solenko sees the tell-tale "election fingerprint" of fraud in the turnout and vote-share data, but refuses to treat a suggestive shape as proof. When a viral graphic claiming that a Benford's-law digit test "proves" the fraud sweeps the movement, Mira recognizes it as a discreditable trap—an unreliable method the regime's telegenic statistician can demolish on air—and traces its origin to coordinated pro-regime accounts. Against the momentum-hungry instincts of coalition spokesperson Danel Ruse, she insists on building a slower, defensible case: a neighbourhood-standardized small-station analysis exposing localized coercion, and, decisively, an archive of citizen-photographed signed precinct tally sheets compared against the commission's published totals. Her aunt Sanda's fiercely loyal town of Torun—which genuinely voted for Renko—becomes both an honest baseline and, when its ledger proves to have been inflated anyway, the clearest evidence of central tampering. The Concord releases the receipts and publicly disowns the seductive graphic, so the regime's on-air rebuttal lands on nothing. Renko does not fall, but the un-erasable archive shifts something, and Mira learns that the truth which survives is the one you can sign and hand to anyone to check.
